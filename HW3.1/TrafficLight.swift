@@ -9,11 +9,15 @@ import SwiftUI
 
 struct TrafficLight: View {
     
+    @State private var currentLight = CurrentLight.red
+    
+    @State private var redLight = Light(color: .red)
+    @State private var yellowLight = Light(color: .yellow)
+    @State private var greenLight = Light(color: .green)
+    
+    @State private var labelButton = "Start"
+    
     var body: some View {
-        var redLight = Light(color: .red)
-        var yellowLight = Light(color: .yellow)
-        var greenLight = Light(color: .green)
-        
         VStack {
             
             VStack {
@@ -22,10 +26,29 @@ struct TrafficLight: View {
                 greenLight
             }
             
-            Spacer(minLength: 200)
+            Spacer(minLength: 100)
             
-            Button(action: /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Action@*/{}/*@END_MENU_TOKEN@*/) {
-                Text("Start")
+            Button(action: {
+                labelButton = "Next"
+                
+                switch currentLight {
+                
+                case .red:
+                    currentLight = .yellow
+                    greenLight.isOn = false
+                    redLight.isOn = true
+                case .yellow:
+                    currentLight = .green
+                    redLight.isOn = false
+                    yellowLight.isOn = true
+                case .green:
+                    currentLight = .red
+                    yellowLight.isOn = false
+                    greenLight.isOn = true
+                }
+                
+            }) {
+                Text(labelButton)
                     .font(.largeTitle)
                     .foregroundColor(Color.white)
                     .padding()
@@ -38,8 +61,14 @@ struct TrafficLight: View {
                     .cornerRadius(16)
                     .shadow(radius: 10)
             }
+            .padding()
         }
     }
+    
+    private enum CurrentLight {
+        case red, yellow, green
+    }
+    
 }
 
 struct ContentView_Previews: PreviewProvider {

@@ -9,15 +9,20 @@ import SwiftUI
 
 struct Light: View {
     let color: UIColor
-    var opacity: Double = 0.3
+    var isOn = false
+    
+//    private var opacity: Double {
+//        isOn ? 1.0 : 0.3
+//    }
     
     var body: some View {
         Color(color)
             .clipShape(/*@START_MENU_TOKEN@*/Circle()/*@END_MENU_TOKEN@*/)
-            .overlay(Circle().stroke(Color.white, lineWidth: 10))
-            .opacity(opacity)
-            .padding()
             .shadow(radius: 10)
+
+            .overlay(Circle().stroke(Color.white, lineWidth: 5))
+            .opacity(isOn ? 1.0 : 0.3)
+                        .padding()
     }
 }
 
