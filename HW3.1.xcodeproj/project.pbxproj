@@ -8,18 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		A59513FC25821F0600EC09F6 /* HW3_1App.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59513FB25821F0600EC09F6 /* HW3_1App.swift */; };
-		A59513FE25821F0600EC09F6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59513FD25821F0600EC09F6 /* ContentView.swift */; };
+		A59513FE25821F0600EC09F6 /* TrafficLight.swift in Sources */ = {isa = PBXBuildFile; fileRef = A59513FD25821F0600EC09F6 /* TrafficLight.swift */; };
 		A595140025821F0900EC09F6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A59513FF25821F0900EC09F6 /* Assets.xcassets */; };
 		A595140325821F0900EC09F6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A595140225821F0900EC09F6 /* Preview Assets.xcassets */; };
+		A595140D258222F800EC09F6 /* Light.swift in Sources */ = {isa = PBXBuildFile; fileRef = A595140C258222F800EC09F6 /* Light.swift */; };
+		A595141025824AC100EC09F6 /* ButtonTrafficLight.swift in Sources */ = {isa = PBXBuildFile; fileRef = A595140F25824AC100EC09F6 /* ButtonTrafficLight.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		A59513F825821F0600EC09F6 /* HW3.1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HW3.1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A59513FB25821F0600EC09F6 /* HW3_1App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HW3_1App.swift; sourceTree = "<group>"; };
-		A59513FD25821F0600EC09F6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		A59513FD25821F0600EC09F6 /* TrafficLight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrafficLight.swift; sourceTree = "<group>"; };
 		A59513FF25821F0900EC09F6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A595140225821F0900EC09F6 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		A595140425821F0900EC09F6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A595140C258222F800EC09F6 /* Light.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Light.swift; sourceTree = "<group>"; };
+		A595140F25824AC100EC09F6 /* ButtonTrafficLight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonTrafficLight.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,7 +57,9 @@
 			isa = PBXGroup;
 			children = (
 				A59513FB25821F0600EC09F6 /* HW3_1App.swift */,
-				A59513FD25821F0600EC09F6 /* ContentView.swift */,
+				A59513FD25821F0600EC09F6 /* TrafficLight.swift */,
+				A595140F25824AC100EC09F6 /* ButtonTrafficLight.swift */,
+				A595140C258222F800EC09F6 /* Light.swift */,
 				A59513FF25821F0900EC09F6 /* Assets.xcassets */,
 				A595140425821F0900EC09F6 /* Info.plist */,
 				A595140125821F0900EC09F6 /* Preview Content */,
@@ -138,7 +144,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A59513FE25821F0600EC09F6 /* ContentView.swift in Sources */,
+				A595140D258222F800EC09F6 /* Light.swift in Sources */,
+				A59513FE25821F0600EC09F6 /* TrafficLight.swift in Sources */,
+				A595141025824AC100EC09F6 /* ButtonTrafficLight.swift in Sources */,
 				A59513FC25821F0600EC09F6 /* HW3_1App.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
