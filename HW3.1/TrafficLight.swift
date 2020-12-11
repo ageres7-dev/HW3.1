@@ -15,7 +15,26 @@ struct TrafficLight: View {
     @State private var yellowLight = Light(color: .yellow)
     @State private var greenLight = Light(color: .green)
     
-    @State private var labelButton = "Start"
+    @State private var labelButton = "START"
+    
+    private var switchLightAction: () {
+        labelButton = "NEXT"
+        
+        switch currentLight {
+        case .red:
+            currentLight = .yellow
+            greenLight.isOn = false
+            redLight.isOn = true
+        case .yellow:
+            currentLight = .green
+            redLight.isOn.toggle()
+            yellowLight.isOn.toggle()
+        case .green:
+            currentLight = .red
+            yellowLight.isOn.toggle()
+            greenLight.isOn.toggle()
+        }
+    }
     
     var body: some View {
         VStack {
@@ -28,38 +47,9 @@ struct TrafficLight: View {
             
             Spacer(minLength: 100)
             
-            Button(action: {
-                labelButton = "Next"
-                
-                switch currentLight {
-                
-                case .red:
-                    currentLight = .yellow
-                    greenLight.isOn = false
-                    redLight.isOn = true
-                case .yellow:
-                    currentLight = .green
-                    redLight.isOn = false
-                    yellowLight.isOn = true
-                case .green:
-                    currentLight = .red
-                    yellowLight.isOn = false
-                    greenLight.isOn = true
-                }
-                
-            }) {
+            Button(action: { switchLightAction }) {
                 Text(labelButton)
-                    .font(.largeTitle)
-                    .foregroundColor(Color.white)
-                    .padding()
-                    .frame(width: 140)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 16)
-                            .stroke(Color.white, lineWidth: 8)
-                    )
-                    .background(Color.blue)
-                    .cornerRadius(16)
-                    .shadow(radius: 10)
+                    .setBlueStyleButton()
             }
             .padding()
         }
@@ -74,6 +64,6 @@ struct TrafficLight: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         TrafficLight()
-            
+            .preferredColorScheme(.dark)
     }
 }
