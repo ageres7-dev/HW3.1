@@ -9,13 +9,11 @@ import SwiftUI
 
 struct TrafficLight: View {
     
-    @State private var currentLight = CurrentLight.red
-    
-    @State private var redLight = Light(color: .red)
-    @State private var yellowLight = Light(color: .yellow)
-    @State private var greenLight = Light(color: .green)
-    
     @State private var labelButton = "START"
+    @State private var currentLight = CurrentLight.red
+    @State private var redLightIsOn = false
+    @State private var yellowLightIsOn = false
+    @State private var greenLightIsOn = false
     
     private var switchLightAction: () {
         labelButton = "NEXT"
@@ -23,16 +21,16 @@ struct TrafficLight: View {
         switch currentLight {
         case .red:
             currentLight = .yellow
-            greenLight.isOn = false
-            redLight.isOn = true
+            greenLightIsOn = false
+            redLightIsOn = true
         case .yellow:
             currentLight = .green
-            redLight.isOn.toggle()
-            yellowLight.isOn.toggle()
+            redLightIsOn.toggle()
+            yellowLightIsOn.toggle()
         case .green:
             currentLight = .red
-            yellowLight.isOn.toggle()
-            greenLight.isOn.toggle()
+            yellowLightIsOn.toggle()
+            greenLightIsOn.toggle()
         }
     }
     
@@ -40,9 +38,9 @@ struct TrafficLight: View {
         VStack {
             
             VStack {
-                redLight
-                yellowLight
-                greenLight
+                Light(color: .red, isOn: redLightIsOn)
+                Light(color: .yellow, isOn: yellowLightIsOn)
+                Light(color: .green, isOn: greenLightIsOn)
             }
             
             Spacer(minLength: 100)
@@ -53,12 +51,13 @@ struct TrafficLight: View {
             }
             .padding()
         }
-    }
-    
+    }    
+}
+
+extension TrafficLight {
     private enum CurrentLight {
         case red, yellow, green
     }
-    
 }
 
 struct ContentView_Previews: PreviewProvider {
